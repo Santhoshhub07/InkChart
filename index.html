@@ -1,0 +1,2495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradePro - Advanced Trading Platform</title>
+    <style>
+       
+        /* Hero section styling */
+        .hero-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4eaf5 100%);
+            overflow: hidden;
+        }
+        
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        /* Left side content */
+        .left-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .left-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #05044A;
+            line-height: 1.2;
+        }
+        
+        .left-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        
+        /* Features section */
+        .Homefeatures {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .Homefeature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 0.75rem 1.25rem;
+            border-radius: 50px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .feature-iconHome {
+            width: 24px;
+            height: 24px;
+            color: #05044A;
+        }
+        
+        .Homefeature span {
+            font-weight: 600;
+        }
+        
+        /* CTA button */
+        .cta-button {
+            display: inline-block;
+            background-color: #3366cc;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+        
+        .cta-button:hover {
+            background-color: #204080;
+        }
+        
+        /* Right side content */
+        .right-content {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .video-container {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .content-container {
+                flex-direction: column;
+            }
+            
+            .left-content, .right-content {
+                width: 100%;
+            }
+            
+            .right-content {
+                order: -1; /* Places video above text on mobile */
+            }
+            
+            .left-content h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .hero-section {
+                padding: 3rem 1rem;
+            }
+            
+            .Homefeatures {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .Homefeature {
+                width: 100%;
+            }
+            
+            .left-content h1 {
+                font-size: 1.75rem;
+            }
+        }
+
+
+        /* faqstart */
+        
+        .feature-iconHome {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            color: #2e86de;
+        }
+
+        .faq-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #0d2b45;
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .faq-container {
+            display: grid;
+            gap: 16px;
+        }
+        
+        .faq-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #0d2b45;
+            background-color: #fff;
+            transition: background-color 0.3s;
+        }
+        
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-question::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 20px 20px;
+        }
+        
+        .faq-answer p {
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer ul li {
+            margin-bottom: 5px;
+        }
+        
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 8px 15px;
+            border: none;
+            background-color: #e5e5e5;
+            color: #333;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background-color: #2e86de;
+            color: white;
+        }
+        
+        .still-have-questions {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #f0f7ff;
+            border-radius: 8px;
+        }
+        
+        .still-have-questions h3 {
+            margin-bottom: 15px;
+            color: #0d2b45;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background-color: #2e86de;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-btn:hover {
+            background-color: #1a74c7;
+        }
+
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-box {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .video-container {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .content {
+            padding: 25px;
+        }
+        
+        .quote-icon {
+            color: #ff5733;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .profile-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .name {
+            font-weight: bold;
+            font-size: 16px;
+            color: #000;
+        }
+        
+        .position {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .customer-info {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .customer-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 3px solid #f5f5f5;
+        }
+        
+        .customer-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .customer-name-title {
+            flex: 1;
+        }
+        
+        .customer-name {
+            font-weight: 600;
+            color: #0d2b45;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        
+        .customer-title {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .rating {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .star {
+            color: #ffbb00;
+            font-size: 18px;
+            margin-right: 2px;
+        }
+
+
+        .features-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #0d2b45;
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        
+        .section22 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Features Section */
+        .features-section {
+            text-align: center;
+        }
+
+        .section-title {
+            margin-bottom: 60px;
+            font-size: 38px;
+            font-weight: 700;
+        }
+
+        .section-title span {
+            color: #05044A; /* Royal Blue */
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(65, 105, 225, 0.15);
+        }
+
+        .feature-icon {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .feature-title span {
+            color: #4169e1; /* Royal Blue */
+        }
+
+        .feature-description {
+            text-align: center;
+            color: #666;
+            font-size: 16px;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+
+
+        /* founder */
+
+        .profile-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-content {
+            flex: 1;
+            padding: 20px;
+            min-width: 300px;
+        }
+        
+        .profile-image {
+            flex: 0 0 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .profile-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-image img:hover {
+            transform: scale(1.02);
+        }
+        
+        .founderName {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+        
+        .founder {
+            font-size: 1.5rem;
+            color: #05044A;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .parafounder {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .bold {
+            font-weight: 700;
+            color: #05044A;
+        }
+        
+        .card {
+            display: flex;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            flex: 0 0 60px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 5px;
+        }
+        
+        .card-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: #5FE785;
+        }
+        
+        .card-content {
+            flex: 1;
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+        
+        .card-text {
+            margin-bottom: 10px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 900px) {
+            .profile-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+            }
+            
+            .profile-image {
+                flex: 1;
+                margin-bottom: 30px;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .founderName {
+                font-size: 2rem;
+                text-align: center;
+            }
+            
+            .founder {
+                font-size: 1.3rem;
+                text-align: center;
+            }
+            
+            .parafounder {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .profile-container {
+                margin: 20px;
+                padding: 15px;
+            }
+            
+            .profile-content {
+                padding: 15px 10px;
+            }
+            
+            .founderName {
+                font-size: 1.8rem;
+            }
+            
+            .founder {
+                font-size: 1.1rem;
+            }
+            
+            .parafounder {
+                font-size: 1rem;
+            }
+            
+            .card {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .card-icon {
+                margin-bottom: 15px;
+            }
+            
+            .card-title {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .features-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .feature-grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .features-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .testimonials-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .faq-question {
+                font-size: 1rem;
+                padding: 15px;
+            }
+        }
+   
+
+        /* faqend */
+
+       /* countstart */
+
+
+        .counter-container {
+            position: relative;
+            background-color: white;
+            width: 100%;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .counter-value {
+            font-size: min(60px, 10vw);
+            font-weight: 700;
+            color: #4169e1;
+            margin-bottom: 10px;
+            z-index: 2;
+        }
+
+        .counter-label {
+            font-size: min(24px, 5vw);
+            color: #333;
+            font-weight: 500;
+            z-index: 2;
+        }
+
+        .avatar {
+            position: absolute;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        /* Position each avatar with percentage-based positioning */
+        .avatar-1 {
+            top: 15%;
+            left: 10%;
+            width: min(70px, 10vw);
+            height: min(70px, 10vw);
+        }
+
+        .avatar-2 {
+            top: 25%;
+            left: 25%;
+            width: min(55px, 8vw);
+            height: min(55px, 8vw);
+        }
+
+        .avatar-3 {
+            top: 50%;
+            left: 15%;
+            width: min(65px, 9vw);
+            height: min(65px, 9vw);
+        }
+
+        .avatar-4 {
+            top: 75%;
+            left: 20%;
+            width: min(50px, 7vw);
+            height: min(50px, 7vw);
+        }
+
+        .avatar-5 {
+            top: 10%;
+            left: 50%;
+            width: min(50px, 7vw);
+            height: min(50px, 7vw);
+            transform: translateX(-50%);
+        }
+
+        .avatar-6 {
+            top: 30%;
+            right: 25%;
+            width: min(55px, 8vw);
+            height: min(55px, 8vw);
+        }
+
+        .avatar-7 {
+            top: 55%;
+            right: 15%;
+            width: min(65px, 9vw);
+            height: min(65px, 9vw);
+        }
+
+        .avatar-8 {
+            top: 75%;
+            right: 20%;
+            width: min(50px, 7vw);
+            height: min(50px, 7vw);
+        }
+
+        .avatar-9 {
+            top: 20%;
+            right: 10%;
+            width: min(70px, 10vw);
+            height: min(70px, 10vw);
+        }
+
+        .avatar-10 {
+            top: 45%;
+            right: 10%;
+            width: min(55px, 8vw);
+            height: min(55px, 8vw);
+        }
+
+        .avatar-11 {
+            top: 60%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(60px, 8.5vw);
+            height: min(60px, 8.5vw);
+        }
+
+        .circle-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(600px, 80vw);
+            height: min(600px, 80vw);
+            border: 1px solid rgba(65, 105, 225, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .inner-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(400px, 60vw);
+            height: min(400px, 60vw);
+            border: 1px solid rgba(65, 105, 225, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 32px;
+            color: #333;
+        }
+
+        .section-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .counter-value {
+                font-size: 8vw;
+            }
+            
+            .counter-label {
+                font-size: 4vw;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .section-description {
+                font-size: 16px;
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-height: 600px) {
+            .avatar-1, .avatar-9 {
+                top: 20%;
+            }
+            
+            .avatar-5 {
+                top: 15%;
+            }
+            
+            .avatar-3, .avatar-7 {
+                top: 55%;
+            }
+            
+            .avatar-4, .avatar-8 {
+                top: 70%;
+            }
+            
+            .avatar-11 {
+                top: 65%;
+            }
+        }
+
+      /* countend */
+
+
+
+
+
+
+
+
+
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column-reverse;
+            }
+            
+            .left-content, .right-content {
+                width: 100%;
+            }
+        }
+
+
+        /* footer */
+
+        .footer {
+            background-color: #1a2942;
+            color: #fff;
+            padding: 4rem 2rem 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        /* Logo and company info */
+        .footer-company {
+            flex: 2;
+            min-width: 280px;
+        }
+        
+        .footer-logo {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .company-info {
+            margin-bottom: 1.5rem;
+            color: #c5d0e6;
+            max-width: 400px;
+        }
+        
+        /* Contact section */
+        .footer-contact {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-heading {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-heading:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #3366cc;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            margin-top: 4px;
+            color: #3366cc;
+        }
+        
+        /* Quick links */
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .quick-links {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.5rem 1rem;
+        }
+        
+        .quick-links li a {
+            color: #c5d0e6;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+            padding: 0.25rem 0;
+        }
+        
+        .quick-links li a:hover {
+            color: #fff;
+            transform: translateX(5px);
+        }
+        
+        /* Copyright bar */
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        
+        .copyright {
+            color: #98a7bc;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: #3366cc;
+        }
+        
+        .social-svg {
+            width: 16px;
+            height: 16px;
+            color: #fff;
+        }
+
+        .course-banner {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e6f7ff; /* Light blue background like in the image */
+  padding: 0 20px;
+}
+
+.course-content {
+  max-width: 100%;
+  text-align: center;
+}
+
+.course-heading {
+  margin-bottom: 15px;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.course-description {
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+  color: #555;
+}
+
+.centered-image {
+  max-height: 35vh; /* Reduced to make room for text */
+  max-width: 90%;
+}
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            
+            .footer-company, .footer-contact, .footer-links {
+                width: 100%;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+                margin-top: 1rem;
+            }
+        }
+
+
+        .hero-section {
+        padding: 3rem 5%;
+        background-color: #f5f7fa;
+    }
+    
+    .content-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+    }
+    
+    /* Left Side Styling */
+    .left-content {
+        flex: 1;
+        position: relative;
+    }
+    
+    .left-content h1 {
+        font-size: 2.5rem;
+        color: #0f1f54;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+    }
+    
+    .title-underline {
+        width: 120px;
+        height: 4px;
+        background-color: #0a3184;
+        margin-bottom: 1.5rem;
+    }
+    
+    .course-description {
+        color: #4a5568;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        background-color: #05044A;
+        color: white;
+        font-weight: bold;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 1.7rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }
+    
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .urgent-tag {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 1.5rem;
+        margin-left: 60%;
+        color: #ff4500;
+        font-weight: 500;
+    }
+    
+    .fire-icon {
+        margin-right: 6px;
+    }
+    
+    /* Right Side Styling */
+    .right-content {
+        flex: 1;
+    }
+    
+    .video-wrapper {
+        background: linear-gradient(135deg, #4e54c8, #8a5cff, #a44cff);
+        border-radius: 15px;
+        padding: 1.5rem;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(78, 84, 200, 0.3);
+    }
+    
+    .warning-banner {
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+    
+    .warning-icon {
+        font-size: 1.6rem;
+    }
+    
+    .warning-banner p {
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+        padding: 10px 20px;
+    }
+    
+    .video-container1 {
+        width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #000;
+    }
+    
+    .video-container1 video {
+        width: 100%;
+        display: block;
+    }
+    
+    /* Program Details Styling */
+    .program-details {
+        max-width: 1200px;
+        margin: 3rem auto 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .program-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .program-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .program-info h3 {
+         margin: 0px 0px !important;
+    }
+
+    .program-info p{
+     margin: 0px 0px !important;
+    }
+    
+    .icon-bg {
+        width: 48px;
+        height: 48px;
+        background-color: #5FE785;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .icon-bg svg {
+        width: 24px;
+        height: 24px;
+        fill: #05044A;
+    }
+    
+    .program-info h3 {
+        color: #718096;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    
+    .program-info p {
+        color: #2d3748;
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+
+    /* test2start */
+    .testimonial-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .section-heading {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #222;
+        }
+        
+        .testimonial-container {
+            position: relative;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin: 0 auto 50px;
+            max-width: 700px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .testimonial-text1 {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #444;
+            quotes: """ """ "'" "'";
+        }
+        
+        .testimonial-text1::before {
+            content: open-quote;
+            color: #6495ED;
+        }
+        
+        .testimonial-text1::after {
+            content: close-quote;
+            color: #6495ED;
+        }
+        
+        .profile-container1 {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .profile1 {
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .profile1:hover {
+            transform: translateY(-5px);
+        }
+        
+        .profile1.active {
+            transform: translateY(-5px);
+        }
+        
+        .profile-image1 {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .profile1.active .profile-image1 {
+            border-color: #6495ED;
+        }
+        
+        .profile-name1 {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 50px;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 10;
+        }
+        
+        .nav-button:hover {
+            color: #6495ED;
+        }
+        
+        .prev {
+            left: 0;
+        }
+        
+        .next {
+            right: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .section-heading {
+                font-size: 26px;
+            }
+            
+            .testimonial-card {
+                padding: 20px;
+            }
+            
+            .testimonial-text1 {
+                font-size: 16px;
+            }
+            
+            .profile-image1 {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .nav-button {
+                font-size: 40px;
+            }
+        }
+    /* test2end */
+    
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+        .content-container {
+            flex-direction: column;
+        }
+        
+        .urgent-tag {
+            margin-left: 0;
+            margin-top: 1rem;
+        }
+        
+        .program-details {
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .program-item {
+            flex: 1 0 45%;
+            margin-bottom: 15px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .program-item {
+            flex: 1 0 100%;
+        }
+    }
+    </style>
+</head>
+<body>
+     <section class="hero-section">
+          <div class="content-container">
+              <!-- Left Side: Course Info and CTA -->
+              <div class="left-content">
+                  <h1>Learn Forex Trading - Basic to Advance in தமிழ்</h1>
+                  <div class="title-underline"></div>
+                  <p class="course-description">
+                      The Ultima Program by Ink Charts is your ultimate guide to mastering the Forex markets. 
+                      Designed for all levels, it focuses on Forex Trading, covering market basics, advanced 
+                      Smart Money Concepts (SMC), structure mapping, and entry strategies. With a practical, 
+                      hands-on approach, you'll learn to navigate the global currency market confidently while 
+                      mastering trade psychology and risk management. Participants also gain exclusive access to 
+                      a premium Discord community for live discussions, support, and chart analysis. No prior 
+                      experience required—just your dedication to success!
+                  </p>
+                  
+                  <a href="#join-now" class="cta-button">I'm ready! Join now</a>
+              </div>
+              
+              <!-- Right Side: Video Box -->
+              <div class="right-content">
+                  <div class="video-wrapper">
+                      <div class="warning-banner">
+                          <span class="warning-icon">🚨</span>
+                          <p>90% of traders fail because they don't have proper guidance & live market experience.</p>
+                      </div>
+                      <div class="video-container1">
+                          <video controls>
+                              <source src="/api/placeholder/400/320" type="video/mp4">
+                              Your browser does not support the video tag.
+                          </video>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Program Details Box at Bottom -->
+          <div class="program-details">
+              <div class="program-item">
+                  <div class="program-icon">
+                      <div class="icon-bg">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                              <path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64h-40V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192zm208-32c-8.8 0-16-7.2-16-16s7.2-16 16-16h96c8.8 0 16 7.2 16 16s-7.2 16-16 16H256zm-128 0c-8.8 0-16-7.2-16-16s7.2-16 16-16h96c8.8 0 16 7.2 16 16s-7.2 16-16 16H128z"/>
+                          </svg>
+                      </div>
+                  </div>
+                  <div class="program-info">
+                      <h3>Course kickoff on:</h3>
+                      <p>5th Apr'25</p>
+                  </div>
+              </div>
+              
+              <div class="program-item">
+                  <div class="program-icon">
+                      <div class="icon-bg">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                              <path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64h-40V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192zm208-32c-8.8 0-16-7.2-16-16s7.2-16 16-16h96c8.8 0 16 7.2 16 16s-7.2 16-16 16H256zm-128 0c-8.8 0-16-7.2-16-16s7.2-16 16-16h96c8.8 0 16 7.2 16 16s-7.2 16-16 16H128z"/>
+                          </svg>
+                      </div>
+                  </div>
+                  <div class="program-info">
+                      <h3>Program Duration</h3>
+                      <p>10 Weeks</p>
+                  </div>
+              </div>
+              
+              <div class="program-item">
+                  <div class="program-icon">
+                      <div class="icon-bg">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                              <path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/>
+                          </svg>
+                      </div>
+                  </div>
+                  <div class="program-info">
+                      <h3>Live Weekend Classes</h3>
+                      <p>40+ Hours</p>
+                  </div>
+              </div>
+              
+              <div class="program-item">
+                  <div class="program-icon">
+                      <div class="icon-bg">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                              <path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h74.6c58.9 0 106.7 47.8 106.7 106.7c0 8.2-6.7 14.9-14.9 14.9H14.9C6.7 313.6 0 306.9 0 298.7zM266.7 352a32 32 0 1 1 0 64a32 32 0 1 1 0-64zm117.3-52c0-58.9 47.8-106.7 106.7-106.7h74.6c58.9 0 106.7 47.8 106.7 106.7c0 8.2-6.7 14.9-14.9 14.9H399.1c-8.2 0-14.9-6.7-14.9-14.9zM384 352a32 32 0 1 1 0 64a32 32 0 1 1 0-64z"/>
+                          </svg>
+                      </div>
+                  </div>
+                  <div class="program-info">
+                      <h3>Cohort #</h3>
+                      <p>12</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+   
+
+      <section class="course-banner">
+          <div class="course-content">
+               <h2 class="section-title">
+                    The Ultima <span>Trading</span> Course</h2>
+            <img src="./join course.png" alt="Ultima Course Flow Chart" class="centered-image">
+          </div>
+        </section>
+
+      
+    <!-- featureSectionStart -->
+
+    <div class="section22">
+     <section class="features-section">
+         <h2 class="section-title">Unlock These Benefits With The <span>Ultima Course</span></h2>
+         
+         <div class="features-grid">
+             <!-- Feature 1: Trading Basics -->
+             <div class="feature-card">
+                 <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+                     <!-- Background Circle -->
+                     <circle cx="60" cy="60" r="55" fill="#E6EFFF" />
+                     
+                     <!-- Book/Document Base -->
+                     <path d="M30,30 L30,90 L90,90 L90,30 Z" fill="white" stroke="#4169E1" stroke-width="2" />
+                     <path d="M30,30 L90,30" stroke="#4169E1" stroke-width="2" />
+                     
+                     <!-- Page Curl -->
+                     <path d="M90,30 L80,40 L80,90 L90,90 Z" fill="#D1E0FF" stroke="#4169E1" stroke-width="1" />
+                     
+                     <!-- Currency Symbols -->
+                     <text x="45" y="55" font-size="14" font-weight="bold" fill="#4169E1">$</text>
+                     <text x="60" y="55" font-size="14" font-weight="bold" fill="#4169E1">€</text>
+                     <text x="75" y="55" font-size="14" font-weight="bold" fill="#4169E1">£</text>
+                     
+                     <!-- Text Lines -->
+                     <line x1="40" y1="65" x2="80" y2="65" stroke="#4169E1" stroke-width="2" />
+                     <line x1="40" y1="75" x2="70" y2="75" stroke="#4169E1" stroke-width="2" />
+                     
+                     <!-- FX Badge -->
+                     <circle cx="55" cy="20" r="15" fill="#4169E1" />
+                     <text x="55" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="white">FX</text>
+                 </svg>
+                 <h3 class="feature-title"><span>Trading</span> From Basics</h3>
+                 <p class="feature-description">Learn how the forex market works in simple terms. Understand who trades in the market, how brokers make money, and the overall structure.</p>
+             </div>
+             
+             <!-- Feature 2: Trading Strategies -->
+             <div class="feature-card">
+                 <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+                     <!-- Background Circle -->
+                     <circle cx="60" cy="60" r="55" fill="#E6EFFF" />
+                     
+                     <!-- Chart Background -->
+                     <rect x="20" y="30" width="80" height="60" fill="white" stroke="#4169E1" stroke-width="2" rx="3" />
+                     
+                     <!-- Chart Grid -->
+                     <line x1="20" y1="50" x2="100" y2="50" stroke="#4169E1" stroke-width="0.5" stroke-dasharray="2,2" />
+                     <line x1="20" y1="70" x2="100" y2="70" stroke="#4169E1" stroke-width="0.5" stroke-dasharray="2,2" />
+                     <line x1="40" y1="30" x2="40" y2="90" stroke="#4169E1" stroke-width="0.5" stroke-dasharray="2,2" />
+                     <line x1="60" y1="30" x2="60" y2="90" stroke="#4169E1" stroke-width="0.5" stroke-dasharray="2,2" />
+                     <line x1="80" y1="30" x2="80" y2="90" stroke="#4169E1" stroke-width="0.5" stroke-dasharray="2,2" />
+                     
+                     <!-- Chart Lines -->
+                     <polyline points="20,65 30,55 40,70 50,45 60,50 70,40 80,55 90,35 100,45" 
+                             fill="none" stroke="#4169E1" stroke-width="3" stroke-linejoin="round" />
+                             
+                     <!-- Strategy Elements -->
+                     <circle cx="50" cy="45" r="4" fill="#4169E1" stroke="white" stroke-width="1" />
+                     <circle cx="70" cy="40" r="4" fill="#4169E1" stroke="white" stroke-width="1" />
+                     <circle cx="90" cy="35" r="4" fill="#4169E1" stroke="white" stroke-width="1" />
+                     
+                     <!-- Strategy Icon -->
+                     <circle cx="90" cy="20" r="10" fill="#4169E1" />
+                     <path d="M85,20 L88,23 L95,16" fill="none" stroke="white" stroke-width="2" />
+                 </svg>
+                 <h3 class="feature-title"><span>Trading</span> Strategies</h3>
+                 <p class="feature-description">Discover simple-to-follow approaches for finding good trades, including Price Action and pattern recognition.</p>
+             </div>
+             
+             <!-- Feature 3: Market Patterns -->
+             <div class="feature-card">
+                 <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+                     <!-- Background Circle -->
+                     <circle cx="60" cy="60" r="55" fill="#E6EFFF" />
+                     
+                     <!-- Pattern Background -->
+                     <rect x="20" y="20" width="80" height="80" fill="white" stroke="#4169E1" stroke-width="2" rx="5" />
+                     
+                     <!-- Pattern 1: Head and Shoulders -->
+                     <path d="M20,60 L30,50 L40,60 L50,40 L60,60 L70,50 L80,60" 
+                           fill="none" stroke="#4169E1" stroke-width="2.5" />
+                     
+                     <!-- Pattern 2: Double Bottom -->
+                     <path d="M20,80 L35,65 L50,80 L65,65 L80,80" 
+                           fill="none" stroke="#4169E1" stroke-width="2.5" />
+                           
+                     <!-- Pattern Indicators -->
+                     <circle cx="50" cy="40" r="3" fill="#4169E1" stroke="white" stroke-width="1" />
+                     <circle cx="35" cy="65" r="3" fill="#4169E1" stroke="white" stroke-width="1" />
+                     <circle cx="65" cy="65" r="3" fill="#4169E1" stroke="white" stroke-width="1" />
+                     
+                     <!-- Magnifying Glass -->
+                     <circle cx="85" cy="30" r="10" fill="none" stroke="#4169E1" stroke-width="2" />
+                     <line x1="92" y1="37" x2="100" y2="45" stroke="#4169E1" stroke-width="2" />
+                 </svg>
+                 <h3 class="feature-title"><span>Market</span> Patterns</h3>
+                 <p class="feature-description">Understand the repeating patterns that move prices. Master practical trading techniques that help you spot opportunities others miss.</p>
+             </div>
+             
+             <!-- Feature 4: Risk Management -->
+             <div class="feature-card">
+                 <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+                     <!-- Background Circle -->
+                     <circle cx="60" cy="60" r="55" fill="#E6EFFF" />
+                     
+                     <!-- Shield -->
+                     <path d="M60,20 L30,35 V60 C30,75 43,90 60,95 C77,90 90,75 90,60 V35 Z" 
+                           fill="white" stroke="#4169E1" stroke-width="2" />
+                     
+                     <!-- Balance Scale -->
+                     <line x1="45" y1="45" x2="75" y2="45" stroke="#4169E1" stroke-width="2" />
+                     <line x1="60" y1="45" x2="60" y2="40" stroke="#4169E1" stroke-width="2" />
+                     <circle cx="60" cy="35" r="5" fill="#4169E1" />
+                     
+                     <!-- Scale Pans -->
+                     <path d="M40,45 L50,45 L45,60 Z" fill="#D1E0FF" stroke="#4169E1" stroke-width="1" />
+                     <path d="M70,45 L80,45 L75,60 Z" fill="#D1E0FF" stroke="#4169E1" stroke-width="1" />
+                     
+                     <!-- Risk Indicators -->
+                     <text x="45" y="55" text-anchor="middle" font-size="10" font-weight="bold" fill="#4169E1">$</text>
+                     <text x="75" y="55" text-anchor="middle" font-size="10" font-weight="bold" fill="#4169E1">R</text>
+                     
+                     <!-- Stop Loss Line -->
+                     <line x1="35" y1="75" x2="85" y2="75" stroke="#4169E1" stroke-width="2" stroke-dasharray="5,2" />
+                     <text x="50" y="83" font-size="10" font-weight="bold" fill="#4169E1">STOP LOSS</text>
+                 </svg>
+                 <h3 class="feature-title"><span>Risk</span> Management</h3>
+                 <p class="feature-description">Learn essential techniques to protect your money. Discover how to determine proper trade sizes and where to place stop-losses.</p>
+             </div>
+             
+             <!-- Feature 5: Trading Psychology -->
+             <div class="feature-card">
+                 <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+                     <!-- Background Circle -->
+                     <circle cx="60" cy="60" r="55" fill="#E6EFFF" />
+                     
+                     <!-- Brain Outline -->
+                     <path d="M40,45 C30,45 25,55 30,65 C25,70 30,80 40,80 L50,80 C55,90 65,90 70,80 L80,80 C90,80 95,70 90,65 C95,55 90,45 80,45 C75,35 65,35 60,45 C55,35 45,35 40,45 Z" 
+                           fill="white" stroke="#4169E1" stroke-width="2" />
+                     
+                     <!-- Brain Segments -->
+                     <path d="M60,45 V80" fill="none" stroke="#4169E1" stroke-width="1" stroke-dasharray="2,2" />
+                     <path d="M45,50 C50,55 50,65 45,70" fill="none" stroke="#4169E1" stroke-width="1.5" />
+                     <path d="M75,50 C70,55 70,65 75,70" fill="none" stroke="#4169E1" stroke-width="1.5" />
+                     
+                     <!-- Emotion Icons -->
+                     <circle cx="50" cy="60" r="5" fill="#4169E1" opacity="0.7" />
+                     <circle cx="70" cy="60" r="5" fill="#4169E1" opacity="0.7" />
+                     
+                     <!-- Calm/Balance Indicator -->
+                     <path d="M45,70 C50,75 70,75 75,70" fill="none" stroke="#4169E1" stroke-width="1.5" />
+                     
+                     <!-- Light Bulb (Idea) -->
+                     <circle cx="85" cy="30" r="8" fill="#4169E1" />
+                     <path d="M85,38 V42" stroke="#4169E1" stroke-width="2" />
+                     <path d="M80,42 H90" stroke="#4169E1" stroke-width="1" />
+                 </svg>
+                 <h3 class="feature-title"><span>Trading</span> Psychology</h3>
+                 <p class="feature-description">Develop the mental discipline needed for successful trading. Learn to control emotions and stay patient during challenging times.</p>
+             </div>
+             
+             <!-- Feature 6: Practical Applications -->
+             <div class="feature-card">
+                 <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+                     <!-- Background Circle -->
+                     <circle cx="60" cy="60" r="55" fill="#E6EFFF" />
+                     
+                     <!-- Trading Terminal -->
+                     <rect x="20" y="30" width="80" height="60" rx="3" fill="white" stroke="#4169E1" stroke-width="2" />
+                     
+                     <!-- Terminal Header -->
+                     <rect x="20" y="30" width="80" height="10" rx="3" fill="#4169E1" />
+                     <circle cx="25" cy="35" r="2" fill="white" />
+                     <circle cx="32" cy="35" r="2" fill="white" />
+                     <circle cx="39" cy="35" r="2" fill="white" />
+                     
+                     <!-- Chart Area -->
+                     <rect x="25" y="45" width="70" height="30" fill="#F5F7FA" stroke="#4169E1" stroke-width="1" />
+                     
+                     <!-- Candlestick Chart -->
+                     <line x1="30" y1="55" x2="30" y2="65" stroke="#4169E1" stroke-width="1" /> <!-- Wick -->
+                     <rect x="28" y="55" width="4" height="5" fill="white" stroke="#4169E1" stroke-width="1" /> <!-- Body -->
+                     
+                     <line x1="40" y1="50" x2="40" y2="65" stroke="#4169E1" stroke-width="1" /> <!-- Wick -->
+                     <rect x="38" y="55" width="4" height="10" fill="#4169E1" /> <!-- Body -->
+                     
+                     <line x1="50" y1="50" x2="50" y2="70" stroke="#4169E1" stroke-width="1" /> <!-- Wick -->
+                     <rect x="48" y="50" width="4" height="10" fill="white" stroke="#4169E1" stroke-width="1" /> <!-- Body -->
+                     
+                     <line x1="60" y1="45" x2="60" y2="65" stroke="#4169E1" stroke-width="1" /> <!-- Wick -->
+                     <rect x="58" y="45" width="4" height="10" fill="white" stroke="#4169E1" stroke-width="1" /> <!-- Body -->
+                     
+                     <line x1="70" y1="50" x2="70" y2="65" stroke="#4169E1" stroke-width="1" /> <!-- Wick -->
+                     <rect x="68" y="50" width="4" height="10" fill="#4169E1" /> <!-- Body -->
+                     
+                     <line x1="80" y1="55" x2="80" y2="70" stroke="#4169E1" stroke-width="1" /> <!-- Wick -->
+                     <rect x="78" y="55" width="4" height="10" fill="white" stroke="#4169E1" stroke-width="1" /> <!-- Body -->
+                     
+                     <!-- Control Buttons -->
+                     <rect x="25" y="80" width="20" height="5" rx="2" fill="#4169E1" />
+                     <rect x="50" y="80" width="20" height="5" rx="2" fill="#E6EFFF" stroke="#4169E1" stroke-width="1" />
+                     <rect x="75" y="80" width="20" height="5" rx="2" fill="#E6EFFF" stroke="#4169E1" stroke-width="1" />
+                 </svg>
+                 <h3 class="feature-title"><span>Practical</span> Applications</h3>
+                 <p class="feature-description">Get hands-on experience with real market examples. Work through detailed case studies and step-by-step trading setups.</p>
+             </div>
+         </div>
+     </section>
+ </div>
+
+ <!-- featureSectionEnd -->
+
+
+    
+
+
+    <!-- count -->
+    <!-- <div class="page-container">
+     <h2 class="section-title">Our Growing Community</h2>
+     <p class="section-description">Join thousands of students from around the world who have transformed their careers through our comprehensive educational programs. Our community grows stronger every day!</p>
+      -->
+     <!-- Student Counter Section -->
+     <!-- <div class="counter-container">
+         <div class="circle-bg"></div>
+         <div class="inner-circle"></div>
+          -->
+         <!-- Avatars -->
+         <!-- <div class="avatar avatar-1" style="background-image: url('./kiruthikainchart.png');"></div>
+         <div class="avatar avatar-2" style="background-image: url('./kiruthikainchart.png');"></div>
+         <div class="avatar avatar-3" style="background-image: url('./kiruthikainchart.png');"></div>
+         <div class="avatar avatar-4" style="background-image: url('./kiruthikainchart.png');"></div>
+         <div class="avatar avatar-5" style="background-image: url('./kiruthikainchart.png');"></div>
+         <div class="avatar avatar-6" style="background-image: url('./kiruthikainchart.png');"></div>
+         <div class="avatar avatar-7" style="background-image: url('./kiruthikainchart.png');"></div>
+         <div class="avatar avatar-8" style="background-image: url('./kiruthikainchart.png');"></div>
+         <div class="avatar avatar-9" style="background-image: url('./kiruthikainchart.png');"></div>
+         <div class="avatar avatar-10" style="background-image: url('./kiruthikainchart.png');"></div>
+         <div class="avatar avatar-11" style="background-image: url('./kiruthikainchart.png');"></div>
+          -->
+         <!-- Counter -->
+         <!-- <div class="counter-value" id="counter">0</div>
+         <div class="counter-label">students and counting!</div>
+     </div>
+ </div> -->
+
+
+     <!-- countend -->
+
+
+    <!-- testimonialstart -->
+
+    <h2 class="section-title">
+     Hear The Real Success Stories From <span>Our Students</span></h2>
+
+    <div class="testimonials-container">
+     
+
+     <!-- Testimonial 1 -->
+     <div class="testimonial-box">
+         <div class="video-container">
+             <!-- Replace with actual video source -->
+             <img src="/api/placeholder/400/200" alt="Video placeholder" />
+         </div>
+         <div class="content">
+             <div class="quote-icon">❞</div>
+             <p class="testimonial-text">"Working with this team felt like having a secret weapon. They took our scattered ideas and turned them into a website that screams 'wow!' Our customers can't stop raving about it!"</p>
+             <div class="profile">
+                 <div class="profile-img">
+                     <img src="/api/placeholder/60/60" alt="Tobias Green" />
+                 </div>
+                 <div class="profile-info">
+                     <div class="name">Tobias Green</div>
+                     <div class="position">Founder, Greenspark Innovations</div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+     <!-- Testimonial 2 -->
+     <div class="testimonial-box">
+         <div class="video-container">
+             <img src="/api/placeholder/400/200" alt="Video placeholder" />
+         </div>
+         <div class="content">
+             <div class="quote-icon">❞</div>
+             <p class="testimonial-text">"Finally, an agency that speaks our language! They understood our vision better than we did and brought it to life in a way that exceeded expectations. 10/10 would recommend!"</p>
+             <div class="profile">
+                 <div class="profile-img">
+                     <img src="/api/placeholder/60/60" alt="Silas Leighton" />
+                 </div>
+                 <div class="profile-info">
+                     <div class="name">Silas Leighton</div>
+                     <div class="position">Managing Director, Venturevista</div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+     <!-- Testimonial 3 -->
+     <div class="testimonial-box">
+         <div class="video-container">
+             <img src="/api/placeholder/400/200" alt="Video placeholder" />
+         </div>
+         <div class="content">
+             <div class="quote-icon">❞</div>
+             <p class="testimonial-text">"I came in with high hopes, and they absolutely blew me away. From strategy to execution, every detail was on point. I'm telling everyone I know—hire them!"</p>
+             <div class="profile">
+                 <div class="profile-img">
+                     <img src="/api/placeholder/60/60" alt="Orion Vance" />
+                 </div>
+                 <div class="profile-info">
+                     <div class="name">Orion Vance</div>
+                     <div class="position">CEO, Lunar Lux Co.</div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+     <!-- Testimonial 4 -->
+      
+     <div class="testimonial-box">
+         <div class="video-container">
+             <img src="/api/placeholder/400/200" alt="Video placeholder" />
+         </div>
+         <div class="content">
+             <div class="quote-icon">❞</div>
+             <p class="testimonial-text">"Their team transformed our digital presence overnight. The analytics don't lie—since launching our new platform, we've seen a 200% increase in engagement and 150% boost in conversions."</p>
+             <div class="profile">
+                 <div class="profile-img">
+                     <img src="/api/placeholder/60/60" alt="Maya Rodriguez" />
+                 </div>
+                 <div class="profile-info">
+                     <div class="name">Maya Rodriguez</div>
+                     <div class="position">Marketing Director, Spectrum Solutions</div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+     <!-- Testimonial 5 -->
+     <div class="testimonial-box">
+         <div class="video-container">
+             <img src="/api/placeholder/400/200" alt="Video placeholder" />
+         </div>
+         <div class="content">
+             <div class="quote-icon">❞</div>
+             <p class="testimonial-text">"What sets this team apart is their ability to listen. They didn't just hear our requirements—they understood the 'why' behind them. The result was a solution perfectly tailored to our unique challenges."</p>
+             <div class="profile">
+                 <div class="profile-img">
+                     <img src="/api/placeholder/60/60" alt="Elijah Bennett" />
+                 </div>
+                 <div class="profile-info">
+                     <div class="name">Elijah Bennett</div>
+                     <div class="position">CTO, Nexus Technologies</div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+     <!-- Testimonial 6 -->
+     <div class="testimonial-box">
+         <div class="video-container">
+             <img src="/api/placeholder/400/200" alt="Video placeholder" />
+         </div>
+         <div class="content">
+             <div class="quote-icon">❞</div>
+             <p class="testimonial-text">"Six months after our rebrand, we're still receiving compliments. Their holistic approach to design not only elevated our aesthetic but strengthened our entire brand identity. Worth every penny!"</p>
+             <div class="profile">
+                 <div class="profile-img">
+                     <img src="/api/placeholder/60/60" alt="Zara Wilson" />
+                 </div>
+                 <div class="profile-info">
+                     <div class="name">Zara Wilson</div>
+                     <div class="position">Brand Director, Elevate Collective</div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+
+    <!-- testimonialend -->
+
+
+    <!-- testimonial2start -->
+
+    <section class="testimonial-section">
+     <h2 class="section-title">
+          Hear The Real Success Stories From <span>Our Students</span></h2>
+     
+     <div class="testimonial-container">
+         <div class="testimonial-card">
+             <p class="testimonial-text1" id="testimonial-content">Great and grateful to have both of you as a coach. Learned a lot and will waiting to Learn a lot. Live sessions helped in a tough situation and makes difference in analysation.</p>
+         </div>
+         
+         <button class="nav-button prev">‹</button>
+         <button class="nav-button next">›</button>
+     </div>
+     
+     <div class="profile-container1" id="profiles">
+         <div class="profile1 active" data-testimonial="Great and grateful to have both of you as a coach. Learned a lot and will waiting to Learn a lot. Live sessions helped in a tough situation and makes difference in analysation.">
+             <img src="./kiruthikainchart.png" alt="Balaji" class="profile-image1">
+             <p class="profile-name1">Balaji</p>
+         </div>
+         
+         <div class="profile1" data-testimonial="The mentors are incredibly knowledgeable. Their approach is practical and easy to understand. I've improved dramatically since joining.">
+             <img src="./kiruthikainchart.png" alt="Rahul" class="profile-image1">
+             <p class="profile-name1">Rahul</p>
+         </div>
+         
+         <div class="profile1" data-testimonial="Best coaching I've ever experienced. The personal attention to each student makes all the difference. Highly recommended!">
+             <img src="./kiruthikainchart.png" alt="Priya" class="profile-image1">
+             <p class="profile-name1">Priya</p>
+         </div>
+         
+         <div class="profile1" data-testimonial="The techniques taught here are game-changers. My performance improved within weeks. The coaches are always available for questions.">
+             <img src="./kiruthikainchart.png" alt="Arun" class="profile-image1">
+             <p class="profile-name1">Arun</p>
+         </div>
+         
+         <div class="profile1" data-testimonial="What sets this coaching apart is how they simplify complex concepts. I'm grateful for their patient guidance throughout my learning journey.">
+             <img src="./kiruthikainchart.png" alt="Neha" class="profile-image1">
+             <p class="profile-name1">Neha</p>
+         </div>
+     </div>
+ </section>
+
+
+
+        <!-- testimonial2end -->
+
+
+
+    <!-- founderSection -->
+    <div class="profile-container">
+     <div class="profile-content">
+         <h1 class="founderName">Hello, I am Kiruthika Kulandaivel.</h1>
+         <h2 class="founder">The Founder of Ink Charts</h2>
+         
+         <p class="parafounder">I am on the journey to help <span class="bold">1 lakh+ people</span> achieve <span class="bold">Financial Independence</span>.</p>
+         
+         <div class="card">
+             <div class="card-icon">
+                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                 </svg>
+             </div>
+             <div class="card-content">
+                 <div class="card-title">My Qualification:</div>
+                 <div class="card-text">Bachelor of Commerce Graduate</div>
+                 <div class="card-text">Certified Chartered Market Technician (CMT Level 1) with 4+ years of expertise in Forex trading</div>
+             </div>
+         </div>
+         
+         <div class="card">
+             <div class="card-icon">
+                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/>
+                     <path d="M17.5 10.5c.88 0 1.73.09 2.5.26V9.24c-.79-.15-1.64-.24-2.5-.24-1.7 0-3.24.29-4.5.83v1.66c1.13-.64 2.7-.99 4.5-.99zM13 12.49v1.66c1.13-.64 2.7-.99 4.5-.99.88 0 1.73.09 2.5.26V11.9c-.79-.15-1.64-.24-2.5-.24-1.7 0-3.24.3-4.5.83z"/>
+                 </svg>
+             </div>
+             <div class="card-content">
+                 <div class="card-title">My Achievements:</div>
+                 <div class="card-text">As a Mentor, I trained <span class="bold">1500+ students</span> to help them achieve financial success.</div>
+                 <div class="card-text">International gold medalist in <span class="bold">Roll Ball</span> (2013, 2017)</div>
+             </div>
+         </div>
+     </div>
+     
+     <div class="profile-image">
+         <img src="./kiruthikainchart.png" alt="Kiruthika Kulandaivel">
+     </div>
+ </div>
+
+
+
+    <!-- faq section -->
+    <section class="faq-section">
+     <!-- Section Header -->
+     <div class="section-header">
+          <h2 class="section-title">
+               Frequently asked <span>Questions</span></h2>
+     </div>
+     
+     <!-- FAQ Categories -->
+     
+     <!-- FAQ Items -->
+     <div class="faq-container">
+         <!-- FAQ Item 1 -->
+         <div class="faq-item">
+             <div class="faq-question">What makes these courses unique??</div>
+             <div class="faq-answer">
+                 <p>Our courses are designed for both beginners and experienced traders. They focus on practical strategies and clear, real-world applications of trading, simplifying complex concepts and offering lifetime access to updates and resources.</p>
+                </div>
+         </div>
+         
+         <!-- FAQ Item 2 -->
+         <div class="faq-item">
+             <div class="faq-question">Which course should I choose?</div>
+             <div class="faq-answer">
+                 <ul>
+                    <li>SHIFT is perfect if you're new to trading and want to build a strong foundation in stock market basics and options trading</li>
+                    <li>ULTIMA is ideal for advanced traders looking to master Forex trading and global market strategies.</li>
+                 </ul>
+             </div>
+         </div>
+         
+         <!-- FAQ Item 3 -->
+         <div class="faq-item">
+             <div class="faq-question">How long does the course last?</div>
+             <div class="faq-answer">
+                 <p>Each course includes 16 - 17 hours of content through video modules and live sessions. You’ll have lifetime access to all resources, allowing you to learn at your own pace and revisit the material anytime.</p>
+             </div>
+         </div>
+         
+         <!-- FAQ Item 4 -->
+         <div class="faq-item">
+             <div class="faq-question">Will I start earning right after the course?</div>
+             <div class="faq-answer">
+                 <p>Earnings depend on your dedication and capital. Our courses provide you with tested strategies and knowledge to trade profitably, but success requires practice and patience.</p>
+             </div>
+         </div>
+         
+         <!-- FAQ Item 5 -->
+         <div class="faq-item">
+             <div class="faq-question">Can I upgrade my course in the future?</div>
+             <div class="faq-answer">
+                 <p>Yes! You can upgrade from SHIFT to ULTIMA at any time by paying the difference in course fees.</p>
+                </div>
+         </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="faq-item">
+               <div class="faq-question">Can I upgrade my course in the future?</div>
+               <div class="faq-answer">
+                   <p>Yes! You can upgrade from SHIFT to ULTIMA at any time by paying the difference in course fees.</p>
+                  </div>
+           </div>
+
+
+            <!-- FAQ Item 5 -->
+         <div class="faq-item">
+          <div class="faq-question">Can I upgrade my course in the future?</div>
+          <div class="faq-answer">
+              <p>Yes! You can upgrade from SHIFT to ULTIMA at any time by paying the difference in course fees.</p>
+             </div>
+      </div>
+
+
+       <!-- FAQ Item 5 -->
+       <div class="faq-item">
+          <div class="faq-question">Can I upgrade my course in the future?</div>
+          <div class="faq-answer">
+              <p>Yes! You can upgrade from SHIFT to ULTIMA at any time by paying the difference in course fees.</p>
+             </div>
+      </div>
+
+
+       <!-- FAQ Item 5 -->
+       <div class="faq-item">
+          <div class="faq-question">Can I upgrade my course in the future?</div>
+          <div class="faq-answer">
+              <p>Yes! You can upgrade from SHIFT to ULTIMA at any time by paying the difference in course fees.</p>
+             </div>
+      </div>
+
+
+       <!-- FAQ Item 5 -->
+       <div class="faq-item">
+          <div class="faq-question">Can I upgrade my course in the future?</div>
+          <div class="faq-answer">
+              <p>Yes! You can upgrade from SHIFT to ULTIMA at any time by paying the difference in course fees.</p>
+             </div>
+      </div>
+     </div>
+     
+     <!-- Still Have Questions Box -->
+     <div class="still-have-questions">
+         <h3>Still Have Questions?</h3>
+         <p>Our support team is available 24/7 to help you with any questions or concerns.</p>
+         <a href="#contact" class="contact-btn">Contact Support</a>
+     </div>
+ </section>
+
+
+
+<!-- 
+ <footer class="footer">
+     <div class="footer-container"> -->
+         <div class="footer-content">
+             <!-- Company Info and Logo
+             <div class="footer-company">
+                 <div class="footer-logo">
+                     <svg class="logo-img" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                         <path d="M4 5h16v2H4zM4 11h16v2H4zM4 17h8v2H4z" fill="#3366cc"/>
+                         <path d="M16 17c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2z" fill="#3366cc"/>
+                     </svg>
+                     <span class="logo-text">TradePro</span>
+                 </div>
+                 <p class="company-info">TradePro provides institutional-grade trading tools with advanced analytics and AI-powered insights, helping traders of all levels make informed decisions and achieve success.</p>
+             </div> -->
+             
+             <!-- Contact Information -->
+             <!-- <div class="footer-contact">
+                 <h3 class="footer-heading">Contact Us</h3>
+                 <ul class="contact-info">
+                     <li>
+                         <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                         </svg>
+                         <span>123 Trading Street, Financial District<br>New York, NY 10004</span>
+                     </li>
+                     <li>
+                         <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                         </svg>
+                         <span>contact@tradepro.com</span>
+                     </li>
+                     <li>
+                         <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                             <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM19 12h2c0-4.97-4.03-9-9-9v2c3.87 0 7 3.13 7 7z"/>
+                         </svg>
+                         <span>+1 (800) 123-4567</span>
+                     </li>
+                 </ul>
+             </div> -->
+             
+             <!-- Quick Links -->
+             <!-- <div class="footer-links">
+                 <h3 class="footer-heading">Quick Links</h3>
+                 <ul class="quick-links">
+                     <li><a href="#">Home</a></li>
+                     <li><a href="#">About Us</a></li>
+                     <li><a href="#">Trading Platform</a></li>
+                 </ul>
+             </div>
+         </div>
+          -->
+         <!-- Copyright and Social Links -->
+         <!-- <div class="footer-bottom">
+             <div class="copyright">
+                 &copy; 2025 TradePro. All rights reserved.
+             </div>
+             <div class="social-links">
+                 <a href="#" class="social-icon">
+                     <svg class="social-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                         <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                     </svg>
+                 </a>
+                 <a href="#" class="social-icon">
+                     <svg class="social-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                         <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25zM12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                     </svg>
+                 </a>
+                 <a href="#" class="social-icon">
+                     <svg class="social-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                         <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                     </svg>
+                 </a>
+                 <a href="#" class="social-icon">
+                     <svg class="social-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                         <path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81z"/>
+                     </svg>
+                 </a>
+             </div>
+         </div>
+     </div>
+ </footer> -->
+
+     <!-- founderSectionEnd -->
+
+    <script>
+        // Add click event listener to FAQ questions
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(faqItem => {
+                    faqItem.classList.remove('active');
+                });
+                
+                // If clicked item wasn't active, make it active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Add click event listener to category buttons
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Filter functionality would go here in a real implementation
+                // For now, we're just toggling the button styling
+            });
+        });
+    </script>
+
+<script>
+     document.addEventListener('DOMContentLoaded', function() {
+    // Counter animation with Intersection Observer
+    const counterElement = document.getElementById('counter');
+    const targetValue = 1500;
+    const duration = 800; // 2 seconds
+    const step = 10; // Update every 10ms
+    
+    let startTime = null;
+    let hasAnimated = false;
+    
+    function animateCounter(timestamp) {
+        if (!startTime) startTime = timestamp;
+        
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const currentValue = Math.floor(progress * targetValue);
+        
+        counterElement.textContent = currentValue.toLocaleString();
+        
+        if (progress < 1) {
+            setTimeout(() => {
+                requestAnimationFrame(animateCounter);
+            }, step);
+        } else {
+            counterElement.textContent = targetValue.toLocaleString();
+        }
+    }
+    
+    // Create an Intersection Observer to detect when counter is visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // Start animation only when element becomes visible and hasn't animated yet
+            if (entry.isIntersecting && !hasAnimated) {
+                hasAnimated = true;
+                requestAnimationFrame(animateCounter);
+                observer.unobserve(entry.target); // Stop observing once animation starts
+            }
+        });
+    }, {
+        threshold: 0.1 // Trigger when at least 10% of the element is visible
+    });
+    
+    // Start observing the counter element
+    if (counterElement) {
+        observer.observe(counterElement);
+    }
+
+});
+ </script>
+
+<script>
+     document.addEventListener('DOMContentLoaded', function() {
+         const profiles = document.querySelectorAll('.profile1');
+         const testimonialContent = document.getElementById('testimonial-content');
+         const prevButton = document.querySelector('.prev');
+         const nextButton = document.querySelector('.next');
+         let currentIndex = 0;
+         
+         // Function to update testimonial
+         function updateTestimonial(index) {
+             // Remove active class from all profiles
+             profiles.forEach(profile => {
+                 profile.classList.remove('active');
+             });
+             
+             // Add active class to current profile
+             profiles[index].classList.add('active');
+             
+             // Update testimonial text
+             testimonialContent.textContent = profiles[index].getAttribute('data-testimonial');
+             
+             // Update current index
+             currentIndex = index;
+         }
+         
+         // Add click event to profiles
+         profiles.forEach((profile, index) => {
+             profile.addEventListener('click', function() {
+                 updateTestimonial(index);
+             });
+         });
+         
+         // Previous button click
+         prevButton.addEventListener('click', function() {
+             let newIndex = currentIndex - 1;
+             if (newIndex < 0) {
+                 newIndex = profiles.length - 1;
+             }
+             updateTestimonial(newIndex);
+         });
+         
+         // Next button click
+         nextButton.addEventListener('click', function() {
+             let newIndex = currentIndex + 1;
+             if (newIndex >= profiles.length) {
+                 newIndex = 0;
+             }
+             updateTestimonial(newIndex);
+         });
+         
+         // Initialize with first testimonial
+         updateTestimonial(0);
+         
+         // Auto-scroll testimonials every 5 seconds
+         setInterval(function() {
+             let newIndex = currentIndex + 1;
+             if (newIndex >= profiles.length) {
+                 newIndex = 0;
+             }
+             updateTestimonial(newIndex);
+         }, 5000);
+     });
+ </script>
+</body>
+</html>
